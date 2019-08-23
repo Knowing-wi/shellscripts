@@ -6,7 +6,7 @@
 
 
 systemctl stop firewalld && systemctl disable firewalld
-sed -ri s/SELINUX=enforcing/SELINUX=disabled/g /etc/selinux/config
+sed -ri 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 setenforce 0
 
 echo "* * */7 * *  bash /tasks/ntpSync.sh" >>/var/spool/cron/$(whoami)
